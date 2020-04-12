@@ -12,7 +12,7 @@ export class Player {
     public flush:           boolean;
     public twopair:         boolean;
     public straight:        boolean;
-    public highcard:        boolean;
+    public highcard:        number;
     public fullhouse:       boolean;
     public royalflush:      boolean;
     public fourofakind:     boolean;
@@ -198,7 +198,7 @@ export class Player {
     };
 
     public HIGH_CARD() {
-        return this.hand.map(card => card.value).sort((a, b) => a - b)[1];
+        return this.hand.map(card => card.value)[0] + this.hand.map(card => card.value)[1];
     };
 
 }
@@ -212,7 +212,7 @@ export interface PLAYER {
     'flush':            boolean;
     'twopair':          boolean;
     'straight':         boolean;
-    'highcard':         boolean;
+    'highcard':         number;
     'fullhouse':        boolean;
     'royalflush':       boolean;
     'fourofakind':      boolean;

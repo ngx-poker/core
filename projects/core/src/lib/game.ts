@@ -19,6 +19,8 @@ export class Game {
         if (this.players.length > 0) {
             this.players.map(player => {
                 if (player.hand.length == 2) {
+                    player.score            = 0;
+
                     player.pair             = player.PAIR(this.board);
                     player.flush            = player.FLUSH(this.board);
                     player.twopair          = player.TWO_PAIR(this.board);
@@ -29,8 +31,57 @@ export class Game {
                     player.fourofakind      = player.FOUR_OF_A_KIND(this.board);
                     player.threeofakind     = player.THREE_OF_A_KIND(this.board);
                     player.straightflush    = player.STRAIGHT_FLUSH();
+
+                    if (player.pair) {
+                        player.score += 2;
+                    };
+
+                    if (player.flush) {
+                        player.score += 6;
+                    };
+
+                    if (player.twopair) {
+                        player.score += 3;
+                    };
+
+                    if (player.straight) {
+                        player.score += 5;
+                    };
+
+                    if (player.fullhouse) {
+                        player.score += 7;
+                    };
+
+                    if (player.royalflush) {
+                        player.score += 10;
+                    };
+
+                    if (player.fourofakind) {
+                        player.score += 8;
+                    };
+
+                    if (player.threeofakind) {
+                        player.score += 4;
+                    };
+
+                    if (player.straightflush) {
+                        player.score += 9;
+                    };
+
                 };
             });
+
+            this.players.sort((a, b) => {
+                if (a.highcard < b.highcard) {
+                    return -1;
+                } else if (a.highcard > b.highcard) {
+                    return 1;
+                } else {
+                    return 0;
+                };
+            });
+
+            this.players[this.players.length - 1].score += 1;
         };
 
         window.requestAnimationFrame(() => this.process());

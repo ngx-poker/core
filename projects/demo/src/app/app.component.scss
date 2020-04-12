@@ -30,7 +30,12 @@
         }
     }
 }
+.players {
+    display:        flex;
+    flex-direction: row;
+}
 .player {
+    flex:               0 110px;
     color:              #FFFFFF;
     width:              60vh;
     height:             18vh;
@@ -40,9 +45,9 @@
     flex-direction:     row;
     justify-content:    center;
     .card {
-        flex:               0 100px;
-        width:              100px;
-        height:             153px;
+        flex:               0 50px;
+        width:              50px;
+        height:             77px;
         margin:             5px;
         display:            flex;
         align-items:        center;
@@ -50,4 +55,7 @@
         background-size:    cover;
         justify-content:    center;
     }
+}
+.winner {
+    background-color: green;
 }

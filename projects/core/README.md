@@ -1,24 +1,47 @@
-# Core
+<img src="https://raw.githubusercontent.com/ngx-poker/core/master/projects/demo/src/assets/icon.png" width="100">
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3.
+# @ngx-poker/core
 
-## Code scaffolding
+This is a Typescript Library that makes poker intergrations easier!
 
-Run `ng generate component component-name --project core` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project core`.
-> Note: Don't forget to add `--project core` or else it will be added to the default project in your `angular.json` file. 
+## Installation
 
-## Build
+```sh
+$ npm i --save @ngx-poker/core
+```
 
-Run `ng build core` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+```javascript
+import { Game } from '@ngx-poker/core';
 
-After building your library with `ng build core`, go to the dist folder `cd dist/core` and run `npm publish`.
+...
 
-## Running unit tests
+/* Initialize Game */
+const game = new Game();
 
-Run `ng test core` to execute the unit tests via [Karma](https://karma-runner.github.io).
+/* Add Players */
+await game.addPlayer();
+await game.addPlayer();
+await game.addPlayer();
+await game.addPlayer();
 
-## Further help
+/* Deal Cards To Players */
+await game.deal();
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+/* Play Flop */
+await game.flop();
+
+/* Play Turn */
+await game.turn();
+
+/* Play River */
+await game.river();
+
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+[![DEONATE](https://raw.githubusercontent.com/ngx-poker/core/master/projects/demo/src/assets/donate.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZVDGBQ9HJCE4Y&source=url)
